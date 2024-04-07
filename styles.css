@@ -98,9 +98,28 @@ input, textarea, select, button {
 body {
   font: calc(16rem / 16) 'Work Sans', sans-serif;
   min-height: 100vh;
+  background-color: var(--light-pink);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
+.hero {
+  padding: calc(110em / 16);
+  background-image: url('./assets/images/background-pattern-mobile.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+@media (min-width: 35em) {
+  .hero {
+    background-image: url('./assets/images/background-pattern-desktop.svg');
+  }
+}
+
+.footer {
+  padding: calc(20em / 16);
+}
 
 /*
 ==================================

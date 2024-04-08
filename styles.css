@@ -71,6 +71,7 @@ html {
 
 img {
   max-width: 100%;
+  display: block;
 }
 
 input, textarea, select, button {
@@ -96,11 +97,24 @@ input, textarea, select, button {
 ==================================
 */
 body {
-  font: calc(16rem / 16) 'Work Sans', sans-serif;
+  font-family: 'Work Sans';
   min-height: 100vh;
   background-color: var(--light-pink);
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+h1 {
+  font-size: calc(32em / 16);
+}
+
+h2 {
+  font-size: 1em;
+}
+
+button {
+  display: block;
+  width: 100%;
 }
 
 .hero {
@@ -117,9 +131,15 @@ body {
   }
 }
 
+.main-section {
+  padding: calc(50em / 16) 0 0;
+}
+
 .footer {
   padding: calc(20em / 16);
 }
+
+
 
 /*
 ==================================
@@ -140,3 +160,96 @@ body {
   CUMPONENTS
 ==================================
 */
+.accordion {
+  width: min(90%, 530px);
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: calc(40em / 16) calc(25em / 16) calc(25em / 16);
+  border-radius: 10px;
+  position: relative;
+  top: calc(-150em / 16);
+}
+
+.accordion__content > * + * {
+  margin-top: calc(30em / 16);
+}
+
+.accordion__heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 0 calc(20em / 16);
+}
+
+.accordion__star {
+  width: 25px;
+  transform: scale(0.8);
+  animation: scale 1s ease-out infinite alternate;
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  padding: calc(5em / 16) 0;
+  transition: color 300ms;
+}
+
+.accordion__trigger:hover,
+.accordion__trigger:focus-visible {
+  color: hsl(277, 87%, 53%);
+  outline: none;
+}
+
+.accordion__icon {
+  flex: none;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.accordion__icon img {
+  position: absolute;
+  transition: opacity 300ms;
+}
+
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms;
+}
+
+.accordion__panel > div {
+  overflow: hidden;
+}
+
+.accordion__panel p {
+  padding: calc(15em / 16) 0 calc(10em / 16);
+}
+
+/* active states */
+.accordion__faq .accordion__icon > img:last-child {
+  opacity: 0;
+}
+
+.accordion__faq.open .accordion__icon > img:last-child {
+  opacity: 1;
+}
+
+.accordion__faq.open .accordion__icon > img:first-child {
+  opacity: 0;
+}
+
+.accordion__faq.open + .accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}

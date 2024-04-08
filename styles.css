@@ -220,7 +220,7 @@ button {
 .accordion__panel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 300ms;
+  transition: grid-template-rows 500ms;
 }
 
 .accordion__panel > div {

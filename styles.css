@@ -97,7 +97,7 @@ input, textarea, select, button {
 ==================================
 */
 body {
-  font-family: 'Work Sans';
+  font-family: 'Work Sans', sans-serif;
   min-height: 100vh;
   background-color: var(--light-pink);
   display: grid;

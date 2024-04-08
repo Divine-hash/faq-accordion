@@ -214,17 +214,18 @@ button {
 
 .accordion__icon img {
   position: absolute;
-  transition: opacity 300ms;
+  transition: opacity 500ms;
 }
 
 .accordion__panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 500ms;
+  display: flex;
+  flex-direction: column;
 }
 
-.accordion__panel > div {
+.accordion__panel .inner {
   overflow: hidden;
+  max-height: 0;
+  transition: 500ms cubic-bezier(0.44, 0.21, 0, 1);
 }
 
 .accordion__panel p {
@@ -244,8 +245,8 @@ button {
   opacity: 0;
 }
 
-.accordion__faq.open + .accordion__panel {
-  grid-template-rows: 1fr;
+.accordion__faq.open + .accordion__panel .inner {
+  max-height: 1000px;
 }
 
 @keyframes scale {
